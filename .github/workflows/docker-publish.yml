@@ -67,7 +67,7 @@ jobs:
                     java-version: '17'
                     distribution: 'temurin'
             -   name: Test and build the image
-                run: mvn package -Pnative -Dquarkus.native.container-build=true -Dquarkus.container-image.build=true -Dquarkus.container-image.name=${{ env.IMAGE_NAME }}:latest
+                run: mvn package -Pnative -Dquarkus.native.container-build=true -Dquarkus.container-image.build=true -Dquarkus.container-image.image=${{ env.IMAGE_NAME }}:latest
                 env:
                     SHORT_SHA: ${{ steps.short-sha.outputs.sha }}
             -   name: Push Docker Image to Artifact Registry
@@ -115,7 +115,7 @@ jobs:
                     java-version: '17'
                     distribution: 'temurin'
             -   name: Test and build the image
-                run: mvn package -Dquarkus.container-image.build=true -Dquarkus.container-image.name=${{ env.IMAGE_NAME }}:latest
+                run: mvn package -Dquarkus.container-image.build=true -Dquarkus.container-image.image=${{ env.IMAGE_NAME }}:latest
                 env:
                     SHORT_SHA: ${{ steps.short-sha.outputs.sha }}
             -   name: Push Docker Image to Artifact Registry
