@@ -72,8 +72,8 @@ jobs:
                     SHORT_SHA: ${{ steps.short-sha.outputs.sha }}
             -   name: Push Docker Image to Artifact Registry
                 run: |-
-                    docker tag $IMAGE_NAME:latest ghcr.io/$IMAGE_NAME:latest-native
-                    docker tag $IMAGE_NAME:latest ghcr.io/$IMAGE_NAME:$SHA-native
+                    docker tag registry-1.docker.io/$IMAGE_NAME:latest ghcr.io/$IMAGE_NAME:latest-native
+                    docker tag registry-1.docker.io/$IMAGE_NAME:latest ghcr.io/$IMAGE_NAME:$SHA-native
                     docker push ghcr.io/$IMAGE_NAME:latest-native
                     docker push ghcr.io/$IMAGE_NAME:$SHA-native
     build-jvm:
