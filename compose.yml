@@ -1,0 +1,15 @@
+services:
+    food-details:
+        image: "ghcr.io/nico-iaco/todo-quarkus-benchmark:latest"
+        container_name: todo-quarkus-benchmark
+        ports:
+            - "11000:8080"
+        environment:
+            - TZ=Europe/Rome
+        restart: unless-stopped
+        deploy:
+            replicas: 1
+            resources:
+                limits:
+                    cpus: '1'
+                    memory:  1G
