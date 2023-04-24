@@ -12,10 +12,9 @@ public class TodoResourceTest {
     @Test
     public void testHelloEndpoint() {
         given()
-                .when().get("/hello")
+                .when().get("/todo/")
                 .then()
-                .statusCode(200)
-                .body(is("Hello RESTEasy"));
+                .statusCode(200);
     }
 
 }
